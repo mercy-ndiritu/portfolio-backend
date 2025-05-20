@@ -5,8 +5,10 @@ require("dotenv").config({ path: "./config.env" });
 
 const app = express();
 app.use(cors({
-    origin: ['http://localhost:5173','https://portfolio-backend-ruby-ten.vercel.app'],
-}))
+    origin: ['http://localhost:5173', 'https://your-frontend-production-url.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 app.use(express.json());
 
 const contactRoute = require("./routes/contact");
