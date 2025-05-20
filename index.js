@@ -4,7 +4,9 @@ const cors = require("cors");
 require("dotenv").config({ path: "./config.env" });
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173','https://portfolio-backend-ruby-ten.vercel.app'],
+}))
 app.use(express.json());
 
 const contactRoute = require("./routes/contact");
