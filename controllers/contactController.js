@@ -12,7 +12,7 @@ async function submitContact(req, res) {
         const result = await db.collection("messages").insertOne({ name, email, subject, message, createdAt: new Date() });
         res.status(201).json({ success: true, messageId: result.insertedId });
     } catch (error) {
-        res.status(500).json({ error: "Failed to send message." });
+        res.status(500).json({ error: `Failed to send message: ${error.message}` });
     }
 }
 
